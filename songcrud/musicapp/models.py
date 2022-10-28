@@ -18,7 +18,15 @@ class Song(models.Model):
     date_released = models.DateField(default=datetime.now, blank=True)  
     likes = models.IntegerField(default=0) 
 
+    def __str__(self):
+       return self.title
+
+
 class Lyric(models.Model): 
     song = models.ForeignKey(Song, on_delete= models.CASCADE)
     content = models.CharField(max_length = 2000) 
+    
+    def __str__(self):
+       return self.song
+
    
